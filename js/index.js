@@ -49,16 +49,11 @@ logo.setAttribute("src", siteContent["nav"]["img-src"]);
 let ctaImg = document.getElementById("cta-img");
 ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
 
-const midImg = document.querySelector(".middle-img");
-midImg.src = "img/mid-page-accent.jpg";
+const midImg = document.getElementsByClassName("middle-img");
+midImg[0].setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 
 let navItems = document.querySelectorAll("a");
-navItems[0].textContent = siteContent["nav"]["nav-item-1"];
-navItems[1].textContent = siteContent["nav"]["nav-item-2"];
-navItems[2].textContent = siteContent["nav"]["nav-item-3"];
-navItems[3].textContent = siteContent["nav"]["nav-item-4"];
-navItems[4].textContent = siteContent["nav"]["nav-item-5"];
-navItems[5].textContent = siteContent["nav"]["nav-item-6"];
+navItems.forEach((nav, key) => nav.textContent = siteContent["nav"][`nav-item-${key+1}`]);
 
 let ctaContent = document.querySelector("h1");
 ctaContent.textContent = siteContent["cta"]["h1"];
